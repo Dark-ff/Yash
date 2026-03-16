@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Tribute Page</title>
+<style>
+body{
+background-color:white;
+font-family:"Times New Roman";
+text-align:center;
+}
+h1{
+color:black;
+}
+div{
+text-align:center;
+}
+</style>
+</head>
+<body>
+<div>
+<h1>About Yash</h1>
+</div>
+<div>
+<a href="#">Home</a>
+<a href="#">Education</a>
+<a href="#">Skills</a>
+<a href="#">Interests</a>
+</div>
+<div>
+<p>Name: Yash</p>
+<p>Education: Currently pursuing Engineering.</p>
+<p>Skills: Basic knowledge of HTML and presentation skills.</p>
+<p>Interests: Technology, programming, and science.</p>
+</div>
+
+</body>
+</html>
