@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Writes</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Lora&display=swap" rel="stylesheet">
+<style>
+body {
+background-color: #111;
+color: #e0e0e0;
+font-family: 'Lora', serif;
+}
+.navbar {
+background-color: #0a0a0a;
+border-bottom: 1px solid #2a2a2a;
+}
+.navbar-brand {
+font-family: 'Playfair Display', serif;
+color: #c9a96e !important;
+font-size: 1.5rem;
+}
+.nav-link { color: #aaa !important; }
+.nav-link:hover { color: #c9a96e !important; }
+.insta-link {
+border: 1px solid #c9a96e;
+color: #c9a96e !important;
+border-radius: 4px;
+padding: 4px 12px !important;
+}
+.slide-box {
+min-height: 380px;
+background: #0d0d0d;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 60px 20px;
+}
+.carousel-text {
+font-family: 'Playfair Display', serif;
+font-style: italic;
+font-size: 1.3rem;
+color: #e0e0e0;
+max-width: 680px;
+line-height: 2;
+}
+.carousel-text span { color: #c9a96e; }
+.slide-title {
+font-family: 'Playfair Display', serif;
+color: #c9a96e;
+font-size: 1rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 18px;
+}
+.slide-author {
+margin-top: 18px;
+font-size: 0.85rem;
+color: #666;
+letter-spacing: 1px;
+}
+.section-title {
+font-family: 'Playfair Display', serif;
+color: #c9a96e;
+font-size: 1.8rem;
+margin-bottom: 10px;
+}
+.section-divider {
+border: none;
+border-top: 1px solid #2a2a2a;
+margin-bottom: 40px;
+}
+.poem-card {
+background-color: #1a1a1a;
+border: 1px solid #2a2a2a;
+border-radius: 6px;
+padding: 24px;
+height: 100%;
+transition: border-color 0.3s;
+}
+.poem-card:hover { border-color: #c9a96e; }
+.poem-card h5 {
+font-family: 'Playfair Display', serif;
+color: #c9a96e;
+font-size: 1.15rem;
+margin-bottom: 12px;
+}
+.poem-card p {
+font-style: italic;
+color: #bbb;
+font-size: 0.88rem;
+line-height: 1.9;
+}
+.poem-card .author {
+font-size: 0.78rem;
+color: #555;
+margin-top: 10px;
+}
+.btn-read {
+border: 1px solid #c9a96e;
+color: #c9a96e;
+background: transparent;
+border-radius: 4px;
+font-size: 0.83rem;
+padding: 6px 16px;
+transition: all 0.3s;
+text-decoration: none;
+display: inline-block;
+margin-top: 14px;
+}
+.btn-read:hover {
+background: #c9a96e;
+color: #111;
+}
+footer {
+background-color: #0a0a0a;
+border-top: 1px solid #2a2a2a;
+padding: 30px 0;
+text-align: center;
+color: #555;
+font-size: 0.85rem;
+}
+footer a { color: #c9a96e; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Yash Writes</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#poems">Poems</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-2">
+          <a class="nav-link insta-link" href="https://instagram.com/yash.writes.poem" target="_blank">Instagram</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="poetryCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#poetryCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#poetryCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#poetryCarousel" data-bs-slide-to="2"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="slide-box">
+        <p class="slide-title">The End</p>
+        <p class="carousel-text">
+          "Sometimes the things you love will hurt,<br>
+          Sometimes you'll love but not utter a word,<br>
+          <span>But I will still say, I'm fine."</span>
+        </p>
+        <p class="slide-author">— Yash R.C</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="slide-box">
+        <p class="slide-title">What If</p>
+        <p class="carousel-text">
+          "There's always a lot of 'what if' —<br>
+          What if I said, 'I don't fall apart, I crumble'?<br>
+          <span>But now I'll face them... and finally rejoice."</span>
+        </p>
+        <p class="slide-author">— Yash R.C</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="slide-box">
+        <p class="slide-title">A Letter to Past</p>
+        <p class="carousel-text">
+          "Oh my past self, where have you gone,<br>
+          Where's that place called home I belong,<br>
+          <span>But whatever we are, you'll have to die, to make a new me."</span>
+        </p>
+        <p class="slide-author">— Yash R.C</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#poetryCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#poetryCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<section id="poems" class="py-5">
+  <div class="container">
+    <h2 class="section-title">My Poems</h2>
+    <hr class="section-divider">
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="poem-card">
+          <h5>The End</h5>
+          <p>
+            "And sometimes...<br>
+            Sometimes the things you love will hurt,<br>
+            Sometimes you'll love but not utter a word,<br>
+            Sometimes it will come back,<br>
+            But never twice it won't."
+          </p>
+          <p class="author">— Yash R.C</p>
+          <a href="https://www.instagram.com/p/DW_5KOMjEFu/" target="_blank" class="btn-read">Read More</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="poem-card">
+          <h5>Last Breath</h5>
+          <p>
+            "Poems are my way to express thoughts,<br>
+            my feelings, emotions, and madness somehow.<br>
+            Yes, writing them brings me pain —<br>
+            still, the fire remains."
+          </p>
+          <p class="author">— Yash R.C</p>
+          <a href="https://www.instagram.com/p/DWBMuRrkbMK/" target="_blank" class="btn-read">Read More</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="poem-card">
+          <h5>Somewhere at Start</h5>
+          <p>
+            "Ever felt so full, yet strangely empty,<br>
+            A quiet hollowness resting in my heart?<br>
+            Not good, not bad — just somewhere at the start."
+          </p>
+          <p class="author">— Yash R.C</p>
+          <a href="https://www.instagram.com/p/DVYu7ViETGW/" target="_blank" class="btn-read">Read More</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="poem-card">
+          <h5>Hope & Despair</h5>
+          <p>
+            "Hope & despair go hand in hand,<br>
+            But it doesn't matter who takes the last stand,<br>
+            The person inside is already broken,<br>
+            Yet he's a fool, stupid enough to stand."
+          </p>
+          <p class="author">— Yash R.C</p>
+          <a href="https://www.instagram.com/p/DUk3Vz8EVE9/" target="_blank" class="btn-read">Read More</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="poem-card">
+          <h5>What If</h5>
+          <p>
+            "There's always a lot of 'what if' —<br>
+            What if I said, I don't fall apart, I crumble?<br>
+            What if I said, I tried to speak, but fumble?<br>
+            But now I'll face them... and finally rejoice."
+          </p>
+          <p class="author">— Yash R.C</p>
+          <a href="https://www.instagram.com/p/DTs0PTBk-e4/" target="_blank" class="btn-read">Read More</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="poem-card">
+          <h5>Let It Be</h5>
+          <p>
+            "I don't really know how I feel,<br>
+            Some days it's enough just to be,<br>
+            A quiet kind of emptiness,<br>
+            The gentleness of simply me."
+          </p>
+          <p class="author">— Yash R.C</p>
+          <a href="https://www.instagram.com/p/DULi1xNkWka/" target="_blank" class="btn-read">Read More</a>
+        </div>
+      </div>
+
+      <div class="col-md-4 mx-auto">
+        <div class="poem-card">
+          <h5>A Letter to Past</h5>
+          <p>
+            "Oh my past self, where have you gone,<br>
+            Where's that place called home I belong,<br>
+            The friendships I treasured are long lost,<br>
+            Guess that was the least of cost."
+          </p>
+          <p class="author">— Yash R.C</p>
+          <a href="https://www.instagram.com/p/DRz1gamE7Ww/" target="_blank" class="btn-read">Read More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-5" style="background-color:#0d0d0d;">
+  <div class="container text-center">
+    <h2 class="section-title">Say Hello</h2>
+    <hr class="section-divider">
+    <p style="color:#aaa; max-width:500px; margin:0 auto 24px;">
+      Words find their way. If mine found you, let's talk.
+    </p>
+    <a href="https://instagram.com/yash.writes.poem" target="_blank" class="btn-read px-4 py-2">
+      DM on Instagram
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <a href="https://instagram.com/yash.writes.poem" target="_blank">@yash.writes.poem</a> · All words reserved.</p>
+  <p style="margin-top:6px; font-style:italic; color:#444;">"Write what hurts. That's where the truth lives."</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
