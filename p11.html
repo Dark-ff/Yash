@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 11 - HTML5 APIs</title>
+</head>
+
+<body>
+
+<h1>HTML5 APIs Demo</h1>
+
+<!-- Drag and Drop -->
+<h2>Drag and Drop</h2>
+
+<div id="dragBox" draggable="true" style="width:100px;height:100px;background:red;color:white;text-align:center;line-height:100px;">
+    Drag me
+</div>
+
+<div id="dropBox" style="width:200px;height:200px;border:2px solid black;margin-top:20px;text-align:center;line-height:200px;">
+    Drop here
+</div>
+
+<!-- Geolocation -->
+<h2>Geolocation</h2>
+<button onclick="getLocation()">Get Location</button>
+<p id="location"></p>
+
+<!-- Web Storage -->
+<h2>Web Storage</h2>
+
+<input type="text" id="name" placeholder="Enter your name">
+<button onclick="saveData()">Save</button>
+<button onclick="loadData()">Load</button>
+
+<p id="result"></p>
+
+<script>
+// Drag and Drop
+let drag = document.getElementById("dragBox");
+let drop = document.getElementById("dropBox");
+
+drag.addEventListener("dragstart", function(e) {
+    e.dataTransfer.setData("text", "dragBox");
+});
+
+drop.addEventListener("dragover", function(e) {
+    e.preventDefault();
+});
+
+drop.addEventListener("drop", function(e) {
+    e.preventDefault();
+    let data = e.dataTransfer.getData("text");
+    drop.appendChild(document.getElementById(data));
+});
+
+// Geolocation
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+function showPosition(position) {
+    document.getElementById("location").innerHTML =
+        "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+}
+
+// Web Storage
+function saveData() {
+    let name = document.getElementById("name").value;
+    localStorage.setItem("username", name);
+}
+
+function loadData() {
+    let data = localStorage.getItem("username");
+    document.getElementById("result").innerHTML = "Stored Name: " + data;
+}
+</script>
+
+</body>
+</html>
