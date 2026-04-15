@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yash — Web Dev Practicals</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --accent: #c8f04a;
+    --accent-dim: rgba(200,240,74,0.12);
+    --text: #f0ede6;
+    --muted: #777;
+    --card-bg: #111;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    z-index: 1;
+    padding: 4rem 2rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-left {}
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .header-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding: 0 2rem;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  /* ── GRID ── */
+  .grid-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 2rem auto 4rem;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.4s forwards;
+  }
+
+  .card:hover { background: #1a1a1a; }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+
+  .card:hover::after { opacity: 1; }
+
+  .card-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .card-desc {
+    font-size: 12px;
+    color: var(--muted);
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .tag-html { background: rgba(56,130,220,0.15); color: #6aaaf5; }
+  .tag-css  { background: rgba(147,100,240,0.15); color: #c4a0f5; }
+  .tag-project { background: var(--accent-dim); color: var(--accent); }
+
+  .arrow {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--muted);
+    transition: all 0.2s;
+  }
+
+  .card:hover .arrow {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  /* special project card */
+  .card.is-project {
+    background: #141a0a;
+  }
+
+  .card.is-project:hover { background: #1a2210; }
+
+  /* stagger animation */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card:nth-child(1)  { animation-delay: 0.05s }
+  .card:nth-child(2)  { animation-delay: 0.10s }
+  .card:nth-child(3)  { animation-delay: 0.15s }
+  .card:nth-child(4)  { animation-delay: 0.20s }
+  .card:nth-child(5)  { animation-delay: 0.25s }
+  .card:nth-child(6)  { animation-delay: 0.30s }
+  .card:nth-child(7)  { animation-delay: 0.35s }
+  .card:nth-child(8)  { animation-delay: 0.40s }
+  .card:nth-child(9)  { animation-delay: 0.45s }
+  .card:nth-child(10) { animation-delay: 0.50s }
+  .card:nth-child(11) { animation-delay: 0.55s }
+  .card:nth-child(12) { animation-delay: 0.60s }
+  .card:nth-child(13) { animation-delay: 0.65s }
+  .card:nth-child(14) { animation-delay: 0.70s }
+
+  /* hidden by filter */
+  .card.hidden { display: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <p class="eyebrow">S.B. Jain Institute of Technology</p>
+    <h1>Yash's <em>Web</em><br>Practicals</h1>
+  </div>
+  <div class="header-meta">
+    <div>Dark-ff / Yash</div>
+    <div id="count">14 files</div>
+    <div>Web Technologies Lab</div>
+  </div>
+</header>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="html">HTML</button>
+  <button class="filter-btn" data-filter="css">CSS</button>
+  <button class="filter-btn" data-filter="project">Project</button>
+</div>
+
+<div class="grid-wrapper" id="grid"></div>
+
+<footer>
+  <span>© 2025 Yash Patil</span>
+  <span><a href="https://github.com/Dark-ff/Yash" target="_blank">github.com/Dark-ff/Yash</a></span>
+</footer>
+
+<script>
+const BASE = "https://dark-ff.github.io/Yash";
+
+const items = [
+  { num:"01", label:"Practical 1",  desc:"First HTML document",            file:"Yash-1.html",            type:"html" },
+  { num:"02", label:"Practical 2",  desc:"Basic HTML structure",            file:"practical 2/index.html", type:"html" },
+  { num:"03", label:"Practical 3",  desc:"Images & hyperlinks",             file:"p3.html",                type:"html" },
+  { num:"04", label:"Practical 4",  desc:"HTML page",                       file:"p4.html",                type:"html" },
+  { num:"05", label:"Practical 5",  desc:"Resume page",                     file:"p5 resume.html",         type:"html" },
+  { num:"06", label:"Practical 6",  desc:"HTML page",                       file:"p6.html",                type:"html" },
+  { num:"07", label:"Practical 7",  desc:"CSS stylesheet",                  file:"p7.css",                 type:"css"  },
+  { num:"08", label:"Practical 8",  desc:"HTML page",                       file:"practical8.html",        type:"html" },
+  { num:"09", label:"Practical 9",  desc:"HTML page",                       file:"p9.html",                type:"html" },
+  { num:"10", label:"Practical 10", desc:"HTML page",                       file:"p10.html",               type:"html" },
+  { num:"11", label:"Practical 11", desc:"Bootstrap layout",                file:"p11.html",               type:"html" },
+  { num:"12", label:"Practical 12", desc:"Yash Writes — refactored",        file:"p12.html",               type:"html" },
+  { num:"13", label:"Practical 13", desc:"HTML page",                       file:"p13.html",               type:"html" },
+  { num:"★",  label:"Project",      desc:"Main project — full submission",  file:"project.html",           type:"project" },
+];
+
+const tagLabel = { html:"HTML", css:"CSS", project:"Project" };
+
+const grid = document.getElementById("grid");
+
+items.forEach(p => {
+  const url = BASE + "/" + p.file.split("/").map(s => encodeURIComponent(s)).join("/");
+  const a = document.createElement("a");
+  a.href = url;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  a.className = "card" + (p.type === "project" ? " is-project" : "");
+  a.dataset.type = p.type;
+  a.innerHTML = `
+    <div class="card-num">${p.num}</div>
+    <div class="card-title">${p.label}</div>
+    <div class="card-desc">${p.desc}</div>
+    <div class="card-footer">
+      <span class="tag tag-${p.type}">${tagLabel[p.type]}</span>
+      <div class="arrow">↗</div>
+    </div>
+  `;
+  grid.appendChild(a);
+});
+
+// Filter
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const f = btn.dataset.filter;
+    const cards = document.querySelectorAll(".card");
+    let visible = 0;
+    cards.forEach(c => {
+      const show = f === "all" || c.dataset.type === f;
+      c.classList.toggle("hidden", !show);
+      if (show) visible++;
+    });
+    document.getElementById("count").textContent = visible + " files";
+  });
+});
+</script>
+</body>
+</html>
