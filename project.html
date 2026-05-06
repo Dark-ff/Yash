@@ -1,257 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CS Dept - SB Jain</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-:root {
-    --bg-deep: #020818;
-    --accent-1: #00d4ff;
-    --accent-2: #7b5ea7;
-    --glass-bg: rgba(255,255,255,0.04);
-    --glass-border: rgba(255,255,255,0.1);
-    --text-main: #e8f0fe;
-    --text-muted: #8da4c8;
-}
-body {
-    font-family: 'Syne', sans-serif;
-    background: linear-gradient(135deg, #020818, #061230);
-    color: var(--text-main);
-    text-align: center;
-}
-header {
-    padding: 50px 20px;
-}
-header h1 {
-    font-size: 2.5rem;
-}
-header p {
-    color: var(--text-muted);
-}
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 12px;
-    background: var(--glass-bg);
-    border-bottom: 1px solid var(--glass-border);
-    position: sticky;
-    top: 0;
-}
-nav a {
-    text-decoration: none;
-    color: var(--text-muted);
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-nav a:hover {
-    color: var(--accent-1);
-    background: rgba(0,212,255,0.1);
-}
-section {
-    padding: 50px 20px;
-}
-h2 {
-    margin-bottom: 20px;
-    color: var(--accent-1);
-}
-.overview-box {
-    max-width: 700px;
-    margin: auto;
-    padding: 20px;
-    background: var(--glass-bg);
-    border-radius: 10px;
-}
-.faculty-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-.faculty {
-    width: 220px;
-    padding: 15px;
-    background: var(--glass-bg);
-    border-radius: 12px;
-    transition: 0.3s;
-}
-.faculty:hover {
-    transform: translateY(-5px);
-}
-.faculty img {
-    width: 100%;
-    height: auto;
-    max-height: 160px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-.faculty h3 {
-    margin-top: 10px;
-}
-.faculty p {
-    font-size: 14px;
-    color: var(--text-muted);
-}
-.research {
-    background: var(--glass-bg);
-    padding: 20px;
-    display: inline-block;
-    border-radius: 10px;
-    max-width: 800px;
-    text-align: left;
-}
-.research p {
-    margin-bottom: 10px;
-}
-table {
-    width: 90%;
-    margin: auto;
-    border-collapse: collapse;
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    overflow: hidden;
-}
-th {
-    background: linear-gradient(135deg, #00d4ff, #7b5ea7);
-    color: white;
-    padding: 12px;
-}
-td {
-    padding: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-tr:nth-child(even) {
-    background: rgba(255,255,255,0.03);
-}
-tr:hover {
-    background: rgba(0,212,255,0.15);
-}
-td:first-child {
-    font-weight: bold;
-    color: #00d4ff;
-}
-footer {
-    padding: 20px;
-    color: var(--text-muted);
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS Department — SB Jain</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="design.css">
 </head>
 <body>
-<header>
-<h1>Computer Science Department</h1>
-<p>SB Jain Institute</p>
-</header>
-<nav>
-<a href="#home">Home</a>
-<a href="#faculty">Faculty</a>
-<a href="#research">Research</a>
-<a href="#timetable">Timetable</a>
-</nav>
-<section id="home">
-<h2>Overview</h2>
-<div class="overview-box">
-<p>The Computer Science & Engineering Department of SB Jain Institute was established in 2008.</p>
-<p>It provides a strong academic environment with focus on theory and practical learning.</p>
-<p>Well-equipped labs, experienced faculty, and strong support for projects and internships.</p>
-</div>
-</section>
-<section id="faculty">
-<h2>Faculty</h2>
-<div class="faculty-container">
-<div class="faculty">
-<img src="https://www.sbjit.edu.in/wp-content/uploads/2026/01/Dr.-Anup-Gade-SIr.png">
-<h3>Dr. Anup Gade</h3>
-<p>HOD</p>
-</div>
-<div class="faculty">
-<img src="https://www.sbjit.edu.in/wp-content/uploads/2025/09/WhatsApp_Image_2025-09-13_at_9.22.35_PM__2_-removebg-preview.png">
-<h3>Mr. Mayur Kadu</h3>
-<p>Assistant Professor</p>
-</div>
-<div class="faculty">
-<img src="https://www.sbjit.edu.in/wp-content/uploads/2026/01/Gemini_Generated_Image_ke48s4ke48s4ke48-removebg-preview.png">
-<h3>Mr. Vrushabh Shinde</h3>
-<p>Assistant Professor</p>
-</div>
-<div class="faculty">
-<img src="https://www.sbjit.edu.in/wp-content/uploads/2026/01/WhatsApp_Image_2026-01-29_at_12.09.18_PM-removebg-preview.png">
-<h3>Mr. Abhijeet Thakur</h3>
-<p>TA</p>
-</div>
-</div>
-</section>
-<section id="research">
-<h2>Research & Development</h2>
-<div class="research">
-<p>- Faculty publish research papers in international journals and conferences</p>
-<p>- Focus on AI, Machine Learning, Data Science, Cloud Computing and Cyber Security</p>
-<p>- Encouragement for patents and innovative project development</p>
-<p>- Industry-based internships and real-world projects</p>
-<p>- Workshops, seminars and guest lectures by experts</p>
-<p>- Participation in IEEE and technical student forums</p>
-<p>- Strong focus on bridging academic learning with IT industry needs</p>
-</div>
-</section>
-<section id="timetable">
-<h2>Weekly Timetable</h2>
-<table>
-<tr>
-<th>Time</th>
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thursday</th>
-<th>Friday</th>
-</tr>
-<tr>
-<td>9:00 - 10:00</td>
-<td>Mathematics</td>
-<td>Data Structures</td>
-<td>Operating Systems</td>
-<td>DBMS</td>
-<td>AI</td>
-</tr>
-<tr>
-<td>10:00 - 11:00</td>
-<td>DBMS</td>
-<td>Computer Networks</td>
-<td>Artificial Intelligence</td>
-<td>Software Engineering</td>
-<td>Web Development</td>
-</tr>
-<tr>
-<td>11:00 - 11:15</td>
-<td colspan="5">Break</td>
-</tr>
-<tr>
-<td>11:15 - 12:15</td>
-<td>Operating Systems</td>
-<td>Mathematics</td>
-<td>DBMS</td>
-<td>Data Structures</td>
-<td>Computer Networks</td>
-</tr>
-<tr>
-<td>12:15 - 1:15</td>
-<td>AI Lab</td>
-<td>DS Lab</td>
-<td>Web Lab</td>
-<td>Project Work</td>
-<td>Seminar</td>
-</tr>
-</table>
-</section>
-<footer>
-Made by : Yash R. Choudhari<br>
-USN : CS25061
-</footer>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="project.html">CS<span class="accent">.</span>SBJain</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="nav">
+        <ul class="navbar-nav gap-1 mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="project.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+          <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="academics.html">Academics</a></li>
+          <li class="nav-item"><a class="nav-link" href="achievements.html">Achievements</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="hero-chip">
+            <span class="hero-chip-dot"></span>
+            SB Jain Institute of Technology · Nagpur
+          </div>
+          <h1 class="hero-title">
+            Computer<br>
+            <span class="grad">Science</span><br>
+            Department
+          </h1>
+          <p class="hero-desc">
+            Established in 2008. Dedicated to excellence in computing education,
+            research, and producing industry-ready professionals.
+          </p>
+          <div>
+            <a href="faculty.html" class="btn-primary-cs">Meet Faculty</a>
+            <a href="academics.html" class="btn-outline-cs">Academics</a>
+          </div>
+          <div class="stat-row">
+            <div class="stat-pill"><div class="stat-num">15+</div><div class="stat-lbl">Faculty</div></div>
+            <div class="stat-pill"><div class="stat-num">16+</div><div class="stat-lbl">Years</div></div>
+            <div class="stat-pill"><div class="stat-num">500+</div><div class="stat-lbl">Alumni</div></div>
+            <div class="stat-pill"><div class="stat-num">3</div><div class="stat-lbl">Research Areas</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-5">
+    <div class="container py-4">
+      <p class="sec-eyebrow">Who We Are</p>
+      <h2 class="sec-title">About the Department</h2>
+      <p class="sec-sub">Providing strong academic foundations in computing with focus on theory and practical skills.</p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="g-card p-4 h-100">
+            <div class="res-icon mb-3">🎯</div>
+            <div class="res-title">Vision</div>
+            <p class="res-desc">To be a centre of excellence in Computer Science education, producing globally competitive professionals and researchers.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="g-card p-4 h-100">
+            <div class="res-icon mb-3">🚀</div>
+            <div class="res-title">Mission</div>
+            <p class="res-desc">Impart quality education through innovative teaching, research culture, and industry collaboration to solve real-world problems.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="g-card p-4 h-100">
+            <div class="res-icon mb-3">💡</div>
+            <div class="res-title">Values</div>
+            <p class="res-desc">Integrity, innovation, and inclusivity. We foster an environment where every student can thrive and contribute meaningfully to society.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-5">
+    <div class="container py-2">
+      <p class="sec-eyebrow">Explore</p>
+      <h2 class="sec-title">Quick Navigation</h2>
+      <div class="row g-3 mt-2">
+        <div class="col-sm-6 col-lg-3">
+          <a href="faculty.html" class="g-card d-block p-4 text-decoration-none text-center">
+            <div style="font-size:2rem;margin-bottom:12px;">👨‍🏫</div>
+            <div style="font-weight:700;color:#fff;margin-bottom:6px;">Faculty</div>
+            <div style="font-size:0.8rem;color:var(--muted);">Meet our experienced faculty members</div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <a href="research.html" class="g-card d-block p-4 text-decoration-none text-center">
+            <div style="font-size:2rem;margin-bottom:12px;">🔬</div>
+            <div style="font-weight:700;color:#fff;margin-bottom:6px;">Research</div>
+            <div style="font-size:0.8rem;color:var(--muted);">AI, Cyber Security, Data Science</div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <a href="academics.html" class="g-card d-block p-4 text-decoration-none text-center">
+            <div style="font-size:2rem;margin-bottom:12px;">📚</div>
+            <div style="font-weight:700;color:#fff;margin-bottom:6px;">Academics</div>
+            <div style="font-size:0.8rem;color:var(--muted);">Curriculum, subjects and timetable</div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <a href="achievements.html" class="g-card d-block p-4 text-decoration-none text-center">
+            <div style="font-size:2rem;margin-bottom:12px;">🏆</div>
+            <div style="font-weight:700;color:#fff;margin-bottom:6px;">Achievements</div>
+            <div style="font-size:0.8rem;color:var(--muted);">Awards, placements and milestones</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer">
+    &copy; 2026 CS Department, SB Jain &nbsp;|&nbsp;
+    Made by: <span class="hl">Yash R. Choudhari</span> &nbsp;|&nbsp; USN: <span class="hl">CS25061</span>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
